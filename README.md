@@ -1,6 +1,8 @@
 # EAWAG-SWMM-HEAT
 Repository for the Eawag version of SWMM-HEAT, a thermal-hydrological model to simulate heat- and hydraulic processes in sewers.
 
+![Image of SWMM-HEAT](https://github.com/Eawag-SWW/EAWAG-SWMM-HEAT/blob/main/swmm_temp.png)
+
 # SWMM-HEAT Build and Input Files
 
 ## SWMM-HEAT Build files
