@@ -1,0 +1,222 @@
+[TITLE]
+;;Project Title/Notes
+*MODEL: Basic sewer catchment model to simulate sewer discharge from Rumlang to Oberglatt 
+*TRANSFER FLOWS 
+*CALIBRATION: 
+*REFERENCE: Author: Alejandro Figueroa, EAWAG, 2021.
+
+[OPTIONS]
+;;Option            	Value
+FLOW_UNITS           LPS							
+INFILTRATION         HORTON							
+FLOW_ROUTING         DYNWAVE							
+LINK_OFFSETS         DEPTH							
+MIN_SLOPE            0							
+ALLOW_PONDING        YES							
+SKIP_STEADY_STATE    NO							
+							
+IGNORE_RAINFALL      YES							
+START_DATE           02/25/2008
+START_TIME           12:00:00
+REPORT_START_DATE    02/26/2008
+REPORT_START_TIME    02:00:00
+END_DATE             02/27/2008
+END_TIME             16:00:00							
+SWEEP_START          01/01							
+SWEEP_END            01/31							
+DRY_DAYS             0							
+REPORT_STEP          00:00:30							
+WET_STEP             00:00:02						
+DRY_STEP             00:00:02							
+ROUTING_STEP         0:00:10							
+;;RULE_STEP            00:00:00							
+							
+INERTIAL_DAMPING     PARTIAL							
+NORMAL_FLOW_LIMITED  BOTH							
+FORCE_MAIN_EQUATION  D-W							
+VARIABLE_STEP        0.75							
+LENGTHENING_STEP     0							
+MIN_SURFAREA         1.14							
+MAX_TRIALS           8							
+HEAD_TOLERANCE       0.0015							
+SYS_FLOW_TOL         5							
+LAT_FLOW_TOL         5							
+MINIMUM_STEP         0.5							
+THREADS              4
+
+TEMP_MODEL           1
+DENSITY              1000.0
+SPEC_HEAT_CAPACITY   4190
+HUMIDITY             0.75															
+EXT_UNIT             T	
+GLOBTPAT             1
+ASCII_OUT            1
+
+[EVAPORATION]
+;;Data Source    Parameters
+;;-------------- ----------------
+CONSTANT         0.0
+DRY_ONLY         NO
+
+[RAINGAGES]							
+;;Name           Format    Interval SCF      Source    							
+;;-------------- --------- ------ ------ ----------							
+
+[SUBCATCHMENTS]
+;;Name          	Rain Gage       	Outlet          	Area    	%Imperv 	Width   	%Slope  	CurbLen 	SnowPack        
+;;--------------	----------------	----------------	--------	--------	--------	--------	--------	----------------    	                
+;
+[SUBAREAS]
+;;;Subcatchment  	N-Imperv  	N-Perv    	S-Imperv  	S-Perv    	PctZero   	RouteTo   	PctRouted 
+;;;--------------	----------	----------	----------	----------	----------	----------	----------
+;
+[INFILTRATION]
+;;;Subcatchment  	MaxRate   	MinRate   	Decay     	DryTime   	MaxInfil  
+;;;--------------	----------	----------	----------	----------	----------
+;
+[JUNCTIONS]
+;;;Name          	Elevation 	MaxDepth  	InitDepth 	SurDepth  	Aponded   
+;;;--------------	----------	----------	----------	----------	----------   
+init      100.00  	3.0       0.01     0 0
+pos2      99.82259      3.0       0.01     0 0
+pos3      99.55217  	3.0       0.01     0 0
+pos4      99.286  	3.0      0.01     0 0
+pos5      99.02847      3.0       0.01     0 0
+pos6      98.75797      3.0       0.01     0 0
+pos7      98.5363       3.0      0.01     0 0
+;
+[OUTFALLS]
+;;;Name          	Elevation 	Type      	Stage Data      	Gated   	Route To        
+;;;--------------	----------	----------	----------------	--------	----------------
+;KNO4983             527.00      FREE      	                	NO 
+final                98.29638        FREE NO  
+;
+;[STORAGE]
+;;;Name          	Elev.   	MaxDepth  	InitDepth 	Shape     	Curve Name/Params           	N/A     	Fevap   	Psi     	Ksat    	IMD     
+;;;--------------	--------	----------	-----------	----------	----------------------------	--------	--------	        	--------	--------
+;;Invert Elevation changed from 516.92 to 515.64
+;
+[CONDUITS]
+;;Name           From Node        To Node          Length     Roughness  InOffset   OutOffset  InitFlow   MaxFlow   							
+;;-------------- ---------------- ---------------- ---------- ---------- ---------- ---------- ---------- ----------
+init_pos2	init         	pos2         194.96  		0.011764706	0	0	0	0	0.1	2.3	0.7	350	350	"A_GN"	"S_GN"
+pos2_pos3 	pos2            pos3         297.16		0.011764706	0	0	0	0	0.1	2.3	0.7	350	350	"A_GN"	"S_GN"
+pos3_pos4   	pos3         	pos4         292.50             0.011764706	0	0	0	0	0.1	2.3	0.7	350	350	"A_GN"	"S_GN"
+pos4_pos5	pos4         	pos5         283.00  		0.011764706	0	0	0	0	0.1	2.3	0.7	350	350	"A_GN"	"S_GN"
+pos5_pos6 	pos5            pos6         297.25		0.011764706	0	0	0	0	0.1	2.3	0.7	350	350	"A_GN"	"S_GN"
+pos6_pos7   	pos6         	pos7         243.59		0.011764706	0	0	0	0	0.1	2.3	0.7	350	350	"A_GN"	"S_GN"
+pos7_final   	pos7         	final        263.65 		0.011764706	0	0	0	0	0.1	2.3	0.7	350	350	"A_GN"	"S_GN"
+
+[PUMPS]
+;;;Name          	From Node       	To Node         	Pump Curve      	Status  	Sartup	Shutoff 
+;;;--------------	----------------	----------------	----------------	------	--------	--------
+
+;
+[WEIRS]
+;;;Name          	From Node       	To Node         	Type        	CrestHt   	Qcoeff    	Gated   	EndCon  	EndCoeff  	Surcharge 	RoadWidth 	RoadSurf  	Coeff. Curve
+;;;--------------	----------------	----------------	------------	----------	----------	--------	--------	----------	----------	----------	----------	----------------
+    
+;
+[XSECTIONS]
+;;;Link          	Shape       	Geom1           	Geom2     	Geom3     	Geom4     	Barrels   	Culvert   
+;;;--------------	------------	----------------	----------	----------	----------	----------	----------
+init_pos2 	CIRCULAR    	0.90            	0         	0         	0         	1         	          
+pos2_pos3 	CIRCULAR    	0.90            	0         	0         	0         	1         	          
+pos3_pos4   	CIRCULAR    	0.90            	0         	0         	0         	1         	          
+pos4_pos5 	CIRCULAR    	0.90            	0         	0         	0         	1         	          
+pos5_pos6 	CIRCULAR    	0.90            	0         	0         	0         	1         	          
+pos6_pos7   	CIRCULAR    	0.90            	0         	0         	0         	1     
+pos7_final 	CIRCULAR    	0.90            	0         	0         	0         	1 
+;
+[WTEMPERATURE]																
+;;Name           Units  Crain      Cgw        Crdii      Kdecay         Cdwf       Cinit     																
+;;-------------- ------ ---------- ---------- ---------- ----------  ---------- ----------																
+WTEMPERATURE      CELSIUS 0.0        0.0        0.0        0.0              0         12 		
+
+										
+[LOSSES]
+;;Link          	Kentry    	Kexit     	Kavg      	Flap Gate 	Seepage   
+;;--------------	----------	----------	----------	----------	----------
+;805-80.1        	0         	0         	0         	YES       	0         
+;Link_4          	0         	0         	0         	YES       	0         
+;
+[LANDUSES]
+;;              	Sweeping  	Fraction  	Last      
+;;Name          	Interval  	Available 	Swept     
+;;--------------	----------	----------	----------
+;Strasse         	0         	0         	0         
+
+[INFLOWS]
+;;Node          	Constituent     	Time Series     	Type    	Mfactor 	Sfactor 	Baseline	Pattern
+;;--------------	----------------	----------------	--------	--------	--------	--------	--------
+;
+init	FLOW	init_flow	FLOW	1	1
+;
+init	WTEMPERATURE	init_temp	WTEMPERATURE	1	1
+;
+;
+
+[TIMESERIES]
+;;;Name          	Date      	Time      	Value     
+;;;--------------	----------	----------	----------
+init_flow	FILE	"flow_edit.txt"
+
+init_temp	FILE	"temp_edit.txt"
+;
+;
+[PATTERNS]
+;;;Name          	Type      	Multipliers
+;;;--------------	----------	-----------
+;; refine this according to depth															
+S_GN         MONTHLY    5   5  5   5  12.27 12.5															
+S_GN                    19.72 17.93 15.21 12.38 8.15  10 															
+;															
+A_GN             MONTHLY    8.33 8.33  8.33  8.33 12.27 23															
+A_GN                        18.01 17.96 17.40 16.61 10.32 5															
+														
+
+
+[REPORT]
+;;Reporting Options
+SUBCATCHMENTS	NONE
+NODES	ALL
+LINKS	ALL
+
+[TAGS]
+
+[MAP]
+DIMENSIONS	697181.304	248062.835	701051.304	251725.835
+Units     	None
+
+[COORDINATES]
+;;Node          	X-Coord           	Y-Coord           
+;;--------------	------------------	------------------ 
+init        	682662.000        	256863.000        
+pos2           	682600.000     	        257048.000
+pos3        	682506.000	        257329.000        
+pos4        	682413.000              257606.000
+pos5            682324.000              257875.000
+pos6            682229.000              258156.000
+pos7            682152.000              258387.000
+final           682069.000              258637.000
+;
+[VERTICES]
+;;;Link          	X-Coord           	Y-Coord           
+;;;--------------	------------------	------------------
+;
+
+;
+[SYMBOLS]
+;;;Gage          	X-Coord           	Y-Coord           
+;;;--------------	------------------	------------------
+;rain_gauge      	699270.088        	249273.811        
+;
+[LABELS]
+;;;X-Coord         	Y-Coord           	Label           
+
+;
+;
+[PROFILES]
+;;;Name          	Links     
+;;;--------------	----------
+;
