@@ -74,6 +74,6 @@ A_GN    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &
 
 
 
-# Tutotial
+# Tutorial
 
 A SWMM-HEAT model that reproduces the thermal-hydraulic dynamics of a 1.8km sewer line in Rumlang, Switzerland is located in the Tutorial folder. The folder includes a description of the simulation experiment, two folders with the data needed for the simulations and a Python script for reading the output file.
