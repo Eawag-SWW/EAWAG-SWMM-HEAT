@@ -71,7 +71,9 @@ A_GN    &nbsp; &nbsp;           MONTHLY &nbsp; &nbsp; &nbsp;    7.24 7.24  7.24 
 A_GN    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;                    18.01 17.96 17.40 16.61 10.32 5		 <br />	
 
 
+**LICENSE:**
 
+This code is public domain under CCO License
 
 
 # Tutorial
