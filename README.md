@@ -79,6 +79,7 @@ A SWMM-HEAT model that reproduces the thermal-hydraulic dynamics of a 1.8km sewe
 
 # LICENSE:
 
-This code is public domain under CCO License
+This project is licensed under the [CC0 1.0 Universal (Public Domain Dedication)](https://creativecommons.org/publicdomain/zero/1.0/).
+
 
 
