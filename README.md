@@ -71,11 +71,14 @@ A_GN    &nbsp; &nbsp;           MONTHLY &nbsp; &nbsp; &nbsp;    7.24 7.24  7.24 
 A_GN    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;                    18.01 17.96 17.40 16.61 10.32 5		 <br />	
 
 
-**LICENSE:**
-
-This code is public domain under CCO License
-
 
 # Tutorial
 
 A SWMM-HEAT model that reproduces the thermal-hydraulic dynamics of a 1.8km sewer line in Rumlang, Switzerland is located in the Tutorial folder. The folder includes a description of the simulation experiment, two folders with the data needed for the simulations and a Python script for reading the output file.
+
+
+# LICENSE:
+
+This code is public domain under CCO License
+
+
